@@ -1,0 +1,17 @@
+.tabs-wrapper {
+    height: 100%!important;
+}
+
+
+
+.tab__name {
+    text-align: center;
+}
+
+.tab__btnclose{
+    text-align: center;
+    border: none;
+    padding: 1px 4px;
+    border-radius: 50%;
+    cursor: pointer;
+}

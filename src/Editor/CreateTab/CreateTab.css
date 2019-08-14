@@ -1,0 +1,32 @@
+.createtab {
+    padding: 10px;
+    background-color: #f3f3f3;
+}
+
+.createtab__form {
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.createtab input {
+    padding: 4px;
+    border: 1px solid #0047ab;
+    border-radius: .25rem;
+    text-align: center;
+    outline: none;
+}
+
+.createtab button {
+    padding: 4px;
+    border: none;
+    margin-left: 6px;
+    color: white;
+    background-color: orange;
+}
+
+.createtab button:hover {
+    cursor: pointer;
+    background-color: #0047ab;
+    transition: .3s ease-out;
+}

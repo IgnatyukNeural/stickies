@@ -1,0 +1,38 @@
+.tab {
+  margin: 5px;
+  float:left;
+  width: 25%;
+  resize: both;
+  overflow: auto;
+  -webkit-box-shadow: 3px 10px 17px -4px rgba(0,0,0,0.75);
+  -moz-box-shadow: 3px 10px 17px -4px rgba(0,0,0,0.75);
+  box-shadow: 3px 10px 17px -4px rgba(0,0,0,0.75);
+  min-width: 230px;
+  min-height: 130px;
+}
+
+.colorful-header {
+  background-color: #0047ab;
+  width: 100%;
+  padding: 10px;
+}
+
+.control-panel .bp3-button {
+  border-radius: 50%;
+}
+
+.control-panel {
+  width: 50%;
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+.colorful-header div {
+  display: inline-block;
+}
+
+.tabContainer div {
+  width: 100%;
+}
+
+ 
