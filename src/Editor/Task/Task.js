@@ -4,7 +4,7 @@ import './Task.css';
 import { EditableText } from '@blueprintjs/core';
 import '@blueprintjs/core/lib/css/blueprint.css';
 
-import { updateTaskName } from '../../Database/Database';
+import { updateTaskName, toggleTask, deleteTask } from '../../Database/Database';
 
 class Task extends Component {
     constructor(props) {
@@ -13,10 +13,6 @@ class Task extends Component {
             taskName: this.props.task.taskName,
             isCompleted: this.props.task.isCompleted
         }
-    }
-
-    toggleTask = () => {
-        console.log('foo bar');
     }
 
     getStyleForTask = () => {
@@ -30,6 +26,11 @@ class Task extends Component {
         return this.state.isCompleted ? event.target.setAttribute('checked') : ''
     }
 
+    handleToggle = (e) => {
+        this.setState({isCompleted: e.target.checked})
+        toggleTask(this.props.tabName, this.state.taskName, this.state.isCompleted)
+    }
+
     handleTaskNameChange = (e) => {
         this.setState({taskName: e})
         const { tabName, task: { taskName } } = this.props;
@@ -37,14 +38,19 @@ class Task extends Component {
         updateTaskName(tabName, taskName, e);
     }
 
+    handleTaskDelete = () => {
+        const { tabName } = this.props;
+        deleteTask(tabName, this.state.taskName)
+    }
+
     render() {
-        return <div className="task">
-            <input onChange={this.toggleTask} type="checkbox" defaultChecked={this.state.isCompleted} />
+        return <div className="task" style={this.getStyleForTask()}>
+            <input onChange={this.handleToggle} type="checkbox" defaultChecked={this.state.isCompleted} />
             <EditableText
                 defaultValue={this.state.taskName}
                 onConfirm={this.handleTaskNameChange}
             />
-            <button className="p__deletebtn">&times;</button>
+            <button onClick={this.handleTaskDelete} className="p__deletebtn">&times;</button>
         </div>
     }
 

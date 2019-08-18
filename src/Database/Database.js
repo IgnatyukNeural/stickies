@@ -50,3 +50,21 @@ export const updateTaskName = (tabName, oldTaskName, newTaskName) => {
     }) 
 
 }
+
+export const toggleTask = (tabName, taskName, isCompleted) => {
+    db.tabs.get(tabName, tab => {
+        tab.tasks.forEach(task => {
+            if(task.taskName === taskName) {
+                task.isCompleted = !isCompleted;
+            }
+        })
+        db.tabs.update(tabName, {tasks: tab.tasks})
+    })
+}
+
+export const deleteTask = (tabName, taskName) => {
+    db.tabs.get(tabName, tab => {
+        const updatedArray = tab.tasks.filter(task => task.taskName !== taskName)
+        db.tabs.update(tabName, {tasks: updatedArray})
+    })
+}
